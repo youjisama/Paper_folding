@@ -66,6 +66,16 @@ class OrigamiWidget(QOpenGLWidget):
         glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
         glClearColor(0.1, 0.1, 0.1, 1.0)
 
+        glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE)  # 启用双面光照
+        # 添加额外光源
+        glEnable(GL_LIGHT1)
+        glLightfv(GL_LIGHT1, GL_POSITION, [0.0, 0.0, -1.0, 0.0])  # 从背面照亮
+        # 提高漫反射分量，使背面亮度增强
+        glLightfv(GL_LIGHT1, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])  # 增强亮度
+
+        # 提高镜面反射分量，让表面更闪亮
+        glLightfv(GL_LIGHT1, GL_SPECULAR, [0.5, 0.5, 0.5, 1.0])  # 增强亮度
+
     def resizeGL(self, w, h):
         """调整窗口大小"""
         glViewport(0, 0, w, h) # 指定渲染内容在窗口中的位置和大小，使渲染结果适配窗口的变化
@@ -168,6 +178,8 @@ class OrigamiWidget(QOpenGLWidget):
             idx1, idx2 = random.sample(range(len(self.boundary_vertices)), 2)
             point1 = self.V[self.boundary_vertices[idx1]]
             point2 = self.V[self.boundary_vertices[idx2]]
+            print(point1,"   ")
+            print(point2,"   ")
             if self.is_different_edges(idx1, idx2): # 不在同一条外层边缘上
                 self.fold_line_points = [point1.tolist(), point2.tolist()] # 把选择的两个点加入数组中为绘制折线做准备
                 print(f"Random fold line: {self.fold_line_points}")
