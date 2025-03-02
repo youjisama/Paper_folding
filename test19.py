@@ -9,7 +9,7 @@ from OpenGL.GLU import *
 import random
 
 
-# 美观化的一版，功能基本实现，但是现实哪一边处于被折叠状态，目前没有很好的点子
+# 美观化的一版，功能基本实现，但是现实哪一边处于被折叠状态，目前没有很好的点子；另外对于折线点的判定能力变弱了
 class OrigamiWidget(QOpenGLWidget):
     def __init__(self, parent=None):
         super(OrigamiWidget, self).__init__(parent)
