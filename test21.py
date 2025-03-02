@@ -35,6 +35,7 @@ class OrigamiWidget(QOpenGLWidget):
             [0.7, 1.0, 0.7],  # 浅绿色
             [0.7, 0.7, 1.0],  # 浅蓝色
             [1.0, 1.0, 0.7],  # 黄色
+            [0.5, 0.5, 0.5],  # 灰色
         ]
         self.current_color = 0
         # 移除自动颜色变化的计时器
