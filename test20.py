@@ -9,7 +9,7 @@ from OpenGL.GLU import *
 import random
 
 
-# 美观化的一版，功能可能有问题
+# 完美1.0
 class OrigamiWidget(QOpenGLWidget):
     def __init__(self, parent=None):
         super(OrigamiWidget, self).__init__(parent)
