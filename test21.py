@@ -9,7 +9,7 @@ from OpenGL.GLU import *
 import random
 
 
-# 完美1.0
+# 及时止损版，点放大就会页面点判定精度降低
 class OrigamiWidget(QOpenGLWidget):
     def __init__(self, parent=None):
         super(OrigamiWidget, self).__init__(parent)
